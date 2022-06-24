@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * Global and layouts
+**/
+body { font-family: 'Poppins'; }
+
+@layer base {
+  body {
+    @apply bg-neutral-50;
+  }
+
+  body .editor-layout {
+		@apply flex antialiased;
+	}
+
+  body .editor-layout main#body {
+    @apply flex flex-col flex-1
+  }
+}
+
+
+/**
+ * Sidebar (aside)
+**/
+@layer base {
+  aside#sidebar {
+		@apply h-screen w-56 bg-white z-50 border-r border-neutral-200;
+	}
+
+  aside#sidebar .logo-container {
+    @apply flex justify-center items-center h-16 mb-10
+  }
+
+	aside#sidebar nav ul {
+    @apply flex flex-col text-sm;
+  }
+
+  aside#sidebar nav a {
+    @apply flex mx-4 p-2 px-4 text-neutral-400;
+  }
+
+  aside#sidebar nav a.active {
+    @apply text-primary-700 font-bold;
+  }
+
+  aside#sidebar #navigation {
+    @apply flex flex-col gap-y-5;
+  }
+
+  aside#sidebar #navigation .nav-group h5 {
+    @apply mx-8 font-bold text-xs pb-2 border-b border-neutral-300 text-primary-700 my-5;
+  }
+}
+
+
+/**
+ * Toolbar
+**/
+@layer base {
+  nav#toolbar {
+    @apply flex items-center h-16 bg-white text-sm border-b border-slate-200 px-5 gap-x-5;
+  }
+}
+
+
+/**
+ * Loading screen
+**/
+
+@layer base {
+  .loading-screen {
+    @apply fixed top-0 left-0 right-0 bottom-0 w-full h-screen z-50 overflow-hidden flex flex-col items-center justify-center gap-y-2
+  }
+
+  .loading-screen-spinner {
+    @apply loader animate-pulse ease-linear rounded-full border-4 border-t-4 border-gray-200 h-6 w-6
+  }
+}
+
+.loader {
+	border-top-color: #0e7490;
+	-webkit-animation: spinner 1.5s linear infinite;
+	animation: spinner 1.5s linear infinite;
+}
+
+@-webkit-keyframes spinner {
+	0% {
+		-webkit-transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+@keyframes spinner {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+
+/**
+ * Components
+**/
+@layer base {
+  a.toolbar-button {
+    @apply bg-neutral-50 hover:bg-neutral-100 font-bold border border-slate-200 text-primary-900 rounded-lg text-xs py-2 px-4
+  }
+
+  .dropdown a.create-team-btn {
+    @apply block w-full text-center border-t border-slate-200 p-2;
+  }
+
+  .project-dropdown {
+    @apply relative flex-1 cursor-pointer;
+  }
+
+  .dropdown {
+    @apply flex flex-col w-full absolute mt-2 bg-rose-200 border border-slate-200 rounded whitespace-nowrap z-50;
+  }
+
+  .dropdown li {
+    @apply flex items-center w-full p-3 gap-x-3 bg-white hover:bg-gray-50 text-primary-900 hover:text-primary-700 transition border-b border-neutral-200;
+  }
+}
